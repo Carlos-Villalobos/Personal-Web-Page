@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carlos Villalobos</title>
+        <style type="text/css" media="screen">
+            html,
+            a:link {
+                color: #fff;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            a:visited {
+                color: #fff;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            a:hover {
+                color: #808080;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            /*a:active {
+                color: yellow;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            <a title="" href="" target="_blank"><font face="Courier New"><font size=5>TEXT</font></a>*/
+            div.clickEffect{
+                position:fixed;
+                box-sizing:border-box;
+                border-style:solid;
+                border-color:#fff;
+                border-radius:50%;
+                animation:clickEffect 0.5s ease-out;
+                z-index:99999;
+            }
+            @keyframes clickEffect{
+                0%{
+                    opacity:1;
+                    width:0.5em; height:0.5em;
+                    margin:-0.25em;
+                    border-width:0.5rem;
+                }
+                100%{
+                    opacity:0.2;
+                    width:15em; height:15em;
+                    margin:-7.5em;
+                    border-width:0.03rem;
+                }
+            }
+            .glow-on-hover {
+                width: 150px;
+                height: 50px;
+                border: none;
+                outline: none;
+                color: #fff;
+                background: #111;
+                cursor: pointer;
+                position: relative;
+                z-index: 0;
+                border-radius: 10px;
+            }
+
+            .glow-on-hover:before {
+                content: '';
+                background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+                position: absolute;
+                top: -2px;
+                left:-2px;
+                background-size: 400%;
+                z-index: -1;
+                filter: blur(5px);
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+                animation: glowing 20s linear infinite;
+                opacity: 0;
+                transition: opacity .3s ease-in-out;
+                border-radius: 10px;
+            }
+
+            .glow-on-hover:active {
+                color: #000
+            }
+
+            .glow-on-hover:active:after {
+                background: transparent;
+            }
+
+            .glow-on-hover:hover:before {
+                opacity: 1;
+            }
+
+            .glow-on-hover:after {
+                z-index: -1;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #111;
+                left: 0;
+                top: 0;
+                border-radius: 10px;
+            }
+
+            @keyframes glowing {
+                0% { background-position: 0 0; }
+                50% { background-position: 400% 0; }
+                100% { background-position: 0 0; }
+            }
+
+            body {
+                background: linear-gradient(-45deg, #aab35c, #47b5ff, #f0976d, #47b5ff, #f0976d, #aab35c);
+                background-size: 400% 400%;
+                animation: gradient 15s ease infinite;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100vh;
+            }
+
+            @keyframes gradient {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+
+            .white-mode {
+                padding: 7px 10px;
+                position: absolute;
+                left: 15px;
+                bottom: 15px;
+                font-family: "Courier New";
+            }
+
+            .white-mode1 {
+                padding: 7px 10px;
+                position: absolute;
+                left: 170px;
+                bottom: 15px;
+                font-family: "Courier New";
+            }
+        </style>
+        <script type="text/javascript">
+            function clickEffect(e){
+                var d=document.createElement("div");
+                d.className="clickEffect";
+                d.style.top=e.clientY+"px";d.style.left=e.clientX+"px";
+                document.body.appendChild(d);
+                d.addEventListener('animationend',function(){d.parentElement.removeChild(d);}.bind(this));
+            }
+            document.addEventListener('click',clickEffect);
+        </script>
+    </head>
+    <link rel="icon" href="images/cc.png">
+    <body>
+        <h1>
+            <font color= "#000"><font face= "Courier New">Carlos Villalobos</font><br/>
+        </h1>
+        <h2>
+            <font color= "#000"><font face= "Courier New">Ingeniero en Cibernética y Sistemas Computacionales</font><br>
+        </h2>
+        <p>
+            <table align="center">
+                <tr>
+                    <td align=center><a href="https://www.linkedin.com/in/carlos-villalobos-garcia-2811b0159/" target="_blank"><button class="glow-on-hover" type="button"><font face="Courier New"><font size=4>LinkedIn</font></button></a></td>
+                    <td align=center><a href="https://www.occ.com.mx/curriculo/19013396" target="_blank"><button class="glow-on-hover" type="button"><font face="Courier New"><font size=4>OCC</font></button></a></td>
+                    <td align=center><a href="https://www.instagram.com/charlievillawolf/" target="_blank"><button class="glow-on-hover" type="button"><font face="Courier New"><font size=4>Instagram</font></button></a></td>
+                    <td align=center><a href="https://github.com/Carlos-Villalobos?tab=repositories" target="_blank"><button class="glow-on-hover" type="button"><font face="Courier New"><font size=4>GitHub</font></button></a></td>
+                    <td align=center><a href="cv/CVCARLOSV.pdf" download="CVCARLOS" target="_blank"><button class="glow-on-hover" type="button"><font face="Courier New"><font size=4>Abrir CV</font></button></a></td>
+                </tr>
+            </table>
+        </p>
+        <a target="_blank" href="mailto:charlievilla587@gmail.com" class="white-mode"><button class="glow-on-hover" type="button">Gmail</button></a>
+        <a target="_blank" href="https://wa.me/523324972127" class="white-mode1"><button class="glow-on-hover" type="button">WhatsApp</button></a>
+    </body>
+</html>
